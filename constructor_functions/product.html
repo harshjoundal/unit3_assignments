@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="product.css">
+
+</head>
+<body>
+    <h1>Products</h1>
+    <div id="counter">
+        <p>Total Products -</p>
+        <div class="count">
+            <p></p>
+        </div>
+
+    </div>
+
+    <div id="container">
+
+        <!-- <div class="product">
+            <div class="image">
+                <img src="https://rukminim2.flixcart.com/image/612/612/kcgk1ow0/shoe/y/3/s/71004-unistar-olive-green-original-imaftktutyyvyqh7.jpeg?q=70" alt="">
+            </div>
+            <p>nike</p>
+            <p>footware</p>
+            <p>2000</p>
+            <p>male</p>
+            
+            <button id="sold">Sold</button>
+            <button id="remove">Remove</button>
+
+
+        </div> -->
+ 
+
+ 
+
+    </div>
+    
+</body>
+</html>
+<script>
+    let products = JSON.parse(localStorage.getItem('Products'));
+    console.log(products)
+
+    function display(Products){
+        Products.forEach(function(ele){
+            let product = document.createElement('div');
+            product.className = 'product';
+
+            let image = document.createElement('div');
+            image.className = 'image';
+            var img = document.createElement('img');
+            img.src = ele.image;
+            image.append(img);
+
+            let name = document.createElement('p');
+            name.innerText = ele.name;
+
+            let category = document.createElement('p');
+            category.innerText = ele.category;
+
+            let price = document.createElement('p');
+            price.innerText = ele.price
+
+            let sold_btn = document.createElement('button');
+            sold_btn.id = 'sold';
+            sold_btn.innerText= 'Sold'
+            var sold_value = ele.sold;
+            if(sold_value == 'false'){
+                sold_btn.style.backgroundColor = 'red';
+            }
+            else{
+                sold_btn.style.backgroundColor = 'green';
+            }
+
+            sold_btn.addEventListener('click',function(event){
+                if(sold_value == 'false'){
+                    sold_value = 'true';
+                    sold_btn.style.backgroundColor = 'green';
+                }
+                else{
+                    sold_value = 'false';
+                    sold_btn.style.backgroundColor = 'red';
+                }
+            })
+
+            let remove_ele = document.createElement('button');
+            remove_ele.id = 'remove';
+            remove_ele.innerText = 'Remove'
+
+            remove_ele.addEventListener('click',function(event){
+                products.splice(ele,1);
+                localStorage.setItem('Products',JSON.stringify(Products));
+                window.location.reload();
+            })
+
+            product.append(image,name,category,price,sold_btn,remove_ele);
+
+
+            document.querySelector('#container').append(product);
+
+
+
+        })
+    }
+
+    display(products);
+
+    let total = document.querySelector('.count>p');
+    total.innerText = products.length
+
+
+</script> 

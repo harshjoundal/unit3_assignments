@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
+
+    <style>
+        *{
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+
+        }
+        #container{
+            width: 35%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;            
+            margin: auto;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+
+
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,select{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 12px 0px;
+            font-size: 16px;
+            border: 1px solid rgb(205, 203, 203);
+            border-radius: 8px;
+        }
+
+        h1{
+            text-align: center;
+            margin: 50px;
+        }
+
+        #add:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add product</h1>
+    <div id="container">
+        <form id="product_form">
+            <input type="text" placeholder="Product name" id="name">
+            <input type="text" placeholder="category" id="category">
+            <input type="text" placeholder="Image URL" id="image">
+            <input type="number" placeholder="Price" id="price">
+            
+            <select id="gender">
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            
+            <select  id="sold">
+                <option value=true>True</option>
+                <option value=false>False</option>
+            </select>
+            <input type="submit" id="add">
+        </form>
+    </div>  
+</body>
+</html>
+
+<script>
+    let product_data = JSON.parse(localStorage.getItem('Products')) || [];
+
+    function Product(name,category,image,price,gender,sold){
+        this.name = name;
+        this.category = category;
+        this.image = image;
+        this.price = price;
+        this.gender = gender;
+        this.sold = sold;
+    }
+    
+
+    
+    let form = document.querySelector('#product_form');
+    form.addEventListener('submit',function(event){
+        event.preventDefault()
+        let name = form.name.value;
+        let category = form.category.value;
+        let image = form.image.value;
+        let price = form.price.value;
+        let gender = form.gender.value;
+        let sold = form.sold.value;
+
+        var product = new Product(name,category,image,price,gender,sold);
+
+        product_data.push(product);
+        localStorage.setItem('Products',JSON.stringify(product_data));
+        window.location.href ='product.html'
+
+    })
+
+</script>
