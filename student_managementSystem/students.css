@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+table,th,td{
+    border: 1px solid #ddd;
+}
+
+table{
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+
+}
+
+td,th{
+    padding: 15px;
+    text-align: center;
+}
+
+th{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+td>img{
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    margin: 0%;
+    padding: 0%;
+}
+
+.photo{
+    display: flex;
+    justify-content: center;
+    padding: 8px 0px;
+    margin: 0px;
+    width: 100%;
+}
+.Remove_row:hover{
+    cursor: pointer;
+    color: red;
+}
+h1{
+    text-align: center;
+    margin-top: 50px;
+}

@@ -1,0 +1,61 @@
+.navbar{
+    width: 100%;
+    background-color: teal;
+    /* color: white; */
+    padding: 20px ;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    
+}
+
+.batch_container{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+}
+
+.batch{
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    /* width: 10%; */
+    justify-content: space-between;
+    margin: 0% 10%;
+
+}
+
+#totalB1,#totalB2{
+    border: 1px solid black;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navbar p{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#pages{
+    width: 30%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+a:hover{
+    cursor: pointer;
+    color: blue;
+}
+
+

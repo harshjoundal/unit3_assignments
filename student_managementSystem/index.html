@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management/home</title>
+    <link rel="stylesheet" href="navbar.css">
+    
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        h1{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        #stDetails{
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+            padding: 25px;
+            margin: auto;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+        }
+
+        input,select{
+            margin-bottom: 30px;
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid teal;  
+        }
+        select{
+            color: teal;
+        }
+        #submit:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="batch_container">
+            <div class="batch">
+                <p>Batch 1 :-</p>
+                <div id="totalB1">
+                    <p></p>
+                </div>
+            </div>
+            
+            <div class="batch">
+                <p>Batch 2 :-</p>
+                <div id="totalB2">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="pages">
+            <a href="students.html">STUDENTS</a>
+            <a href="index.html">ADD STUDENT</a>
+        </div>
+    </div>
+
+    
+
+    <div id="container">
+        <h1>Student Details</h1>
+
+        <form id="stDetails">
+            <input type="text" id="name" placeholder="Student Name" required>
+            <input type="url" id="photo" placeholder="Photo">
+            
+            <select  id="course">
+                <option value="">Please select the course</option>
+                <option value="FSD">FSD</option>
+                <option value="Android">Android Development</option>
+            </select>
+            
+            <select id="unit">
+                <option value="">Unit</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            
+            <select  id="batch">
+                <option value="">Select Batch</option>
+                <option value="1">Batch-1</option>
+                <option value="2">Batch-2</option>
+            </select>
+            <input id="submit" type="submit">
+
+        </form>
+
+        <h1>-------</h1>
+
+
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+
+    let student_data = JSON.parse(localStorage.getItem('student_data')) || [];
+
+    let submit = document.querySelector('form');
+
+    function stdobj(name,photo,course,unit,batch){
+        this.name = name;
+        this.photo = photo;
+        this.course = course;
+        this.unit = unit;
+        this.batch = batch;
+    }
+
+    submit.addEventListener('submit',function(event){
+        event.preventDefault();
+
+        let name = submit.name.value;
+        // console.log(name);
+        let photo = submit.photo.value;
+
+        let course = submit.course.value;
+
+        let unit = submit.unit.value;
+
+        let batch = submit.batch.value
+
+        let student = new stdobj(name,photo,course,unit,batch)
+
+        console.log(student)
+        student_data.push(student);
+
+        localStorage.setItem('student_data',JSON.stringify(student_data));
+
+        window.location.reload()
+    })
+
+    let batch1 = student_data.filter(function(ele){
+    return ele.batch == 1;
+    })
+    document.querySelector('#totalB1 > p').innerText = batch1.length
+
+    let batch2 = student_data.filter(function(ele){
+        return ele.batch == 2;
+    })
+    document.querySelector('#totalB2 > p').innerText = batch2.length
+
+
+
+
+</script>
