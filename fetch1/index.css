@@ -1,0 +1,81 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 1%;
+    font-size: 38px;
+}
+#search_container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+input{
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+button{
+    display: inline;
+    width: 30%;
+    margin: auto;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+button:hover{
+    cursor: pointer;
+    background-color: green;
+
+}
+
+.card{
+    width: 25%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;    margin-top: 30px;
+    border-radius: 10px;
+}
+p{
+    margin-left: 10px;
+    line-height: 22px;
+}
+
+#poster{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#rel_date{
+    color: teal;
+}
+#language{
+    color: teal;
+}
+#rating{
+    font-weight: 600;
+}
+#recomend{
+    background-color: red;
+    display: inline;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+
+}
