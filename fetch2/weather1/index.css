@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+#search_container{
+    /* border: 1px solid black; */
+    margin: auto;
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 20px;
+    width: 30%;
+    justify-content: space-around;
+}
+input{
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+button{
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: blueviolet;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+#data{
+    width: 400px;
+    height: 400px;
+    /* border: 1px solid black; */
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#temp  , #feel,#pressure,#humidity{
+    font-size: 34px;
+    line-height: 55px;
+    font-weight: 600;
+    margin-left: 10px;
+
+}
+#container{
+    display: flex;
+    margin-top: 50px;
+    width: 90%;
+}
+
+/* 'https://maps.google.com/maps?q=${city}&output=embed'
+'https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed' */
