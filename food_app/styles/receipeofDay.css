@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#results{
+    width: 35%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+    margin: auto;
+    box-sizing: border-box;
+    /* padding: 20px; */
+    /* overflow-y: scroll; */
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+#results > img{
+    width: 100%;
+}
+#results > p{
+    margin: 20px;
+    text-align: justify;
+}
